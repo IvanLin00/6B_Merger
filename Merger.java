@@ -28,6 +28,19 @@ public class Merger {
       , int nItems  // number of items in the merged list
                     // = just past end of list1
       ) {
+		 ArrayList<String> sortedList = new ArrayList<String>();
+		 int counter0 = 0, counter1 = 0;
+		 while (counter0 + counter1 < nItems - start0){
+			 if (counter0 + start0>= start1 || usersData.get(counter0+start0).compareTo(usersData.get(counter1+start1)) >= 0){
+				 sortedList.add(counter0+counter1,usersData.get(counter1+start1));
+				 counter1+=1;
+			 }
+			 else {
+				 sortedList.add(counter0+counter1, usersData.get(counter0+start0));
+				 counter0+=1;
+			 }
+		 }
+		 usersData = sortedList;
     }
 
 
